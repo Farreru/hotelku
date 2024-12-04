@@ -1,5 +1,5 @@
 <?php
-$title = "Metode Pembayaran"; // Definisikan Halaman.
+$title = "Reservasi"; // Definisikan Halaman.
 $script = ""; // Definisikan Tempat Script.
 ?>
 
@@ -16,11 +16,11 @@ include_once('header.php') // Include Header
                 <div class="row align-items-center">
                     <div class="col-md-12">
                         <div class="page-header-title">
-                            <h5 class="m-b-10">Metode Pembayaran</h5>
+                            <h5 class="m-b-10">Reservasi</h5>
                         </div>
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="index.php">Menu Utama</a></li>
-                            <li class="breadcrumb-item" aria-current="page">Metode Pembayaran</a></li>
+                            <li class="breadcrumb-item" aria-current="page">Reservasi</a></li>
                         </ul>
                     </div>
                 </div>

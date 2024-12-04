@@ -14,23 +14,23 @@
     </li>
 
     <li class="pc-item ">
-        <a href="dashboard/index.html" class="pc-link"><span class="pc-micon"><i class="ti ti-layers-intersect"></i></span><span
+        <a href="" class="pc-link"><span class="pc-micon"><i class="ti ti-layers-intersect"></i></span><span
                 class="pc-mtext">Default</span></a>
     </li>
-    <li class="pc-item ">
-        <a href="dashboard/index.html" class="pc-link"><span class="pc-micon"><i class="ti ti-users"></i></span><span
+    <li class="pc-item <?php echo $title == "Customer" ? 'active' : '' ?>">
+        <a href="customer.php" class="pc-link"><span class="pc-micon"><i class="ti ti-users"></i></span><span
                 class="pc-mtext">Customer</span></a>
     </li>
-    <li class="pc-item ">
-        <a href="dashboard/index.html" class="pc-link"><span class="pc-micon"><i class="ti ti-bed"></i></span><span
+    <li class="pc-item <?php echo $title == "Kamar" ? 'active' : '' ?>">
+        <a href="kamar.php" class="pc-link"><span class="pc-micon"><i class="ti ti-bed"></i></span><span
                 class="pc-mtext">Kamar</span></a>
     </li>
-    <li class="pc-item ">
-        <a href="dashboard/index.html" class="pc-link"><span class="pc-micon"><i class="ti ti-notebook"></i></span><span
+    <li class="pc-item <?php echo $title == "Reservasi" ? 'active' : '' ?>">
+        <a href="reservasi.php" class="pc-link"><span class="pc-micon"><i class="ti ti-notebook"></i></span><span
                 class="pc-mtext">Reservasi</span></a>
     </li>
-    <li class="pc-item ">
-        <a href="dashboard/index.html" class="pc-link"><span class="pc-micon"><i class="ti ti-wallet"></i></span><span
+    <li class="pc-item <?php echo $title == "Metode Pembayaran" ? 'active' : '' ?>">
+        <a href="metode-pembayaran.php" class="pc-link"><span class="pc-micon"><i class="ti ti-wallet"></i></span><span
                 class="pc-mtext">Metode Pembayaran</span></a>
     </li>
 
