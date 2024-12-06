@@ -50,8 +50,12 @@ function greeting_message()
     <!-- [Material Icons] https://fonts.google.com/icons -->
     <link rel="stylesheet" href="assets/fonts/material.css">
     <!-- [Template CSS Files] -->
-    <link rel="stylesheet" href="assets/css/style.css" id="main-style-link">
+    <!-- <link rel="stylesheet" href="assets/css/plugins/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style(1).css" id="main-style-link">
     <link rel="stylesheet" href="assets/css/style-preset.css">
+    <!-- [Page specific CSS] start --><!-- data tables css -->
+    <link rel="stylesheet" href="assets/css/plugins/dataTables.bootstrap5.min.css">
 
 </head>
 <!-- [Head] end -->
@@ -141,7 +145,7 @@ function greeting_message()
                                 <p class="text-muted">Admin - HotelKu</p>
                                 <hr>
                                 <div class="profile-notification-scroll position-relative" style="max-height: calc(100vh - 280px)">
-                                    <a href="pages/login-v1.html" class="dropdown-item">
+                                    <a href="aksi/logout.php" class="dropdown-item">
                                         <i class="ti ti-logout"></i>
                                         <span>Logout</span>
                                     </a>

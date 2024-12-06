@@ -1,6 +1,7 @@
 <?php
 $title = "Pengguna"; // Definisikan Halaman.
-$script = ""; // Definisikan Tempat Script.
+$script = "pengguna.script.php"; // Definisikan Tempat Script.
+$modals = "pengguna.modals.php";  // Definisikan Tempat Modals.
 ?>
 
 <?php
@@ -34,18 +35,57 @@ include_once('header.php') // Include Header
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h5>Hello card</h5>
+                        <h5>Data Pengguna</h5>
+                        <button data-pc-animate="fade-in-scale" type="button"
+                            class="btn btn-primary float-end" data-action-url="aksi/pengguna.php?action=insert" data-status="Tambah" data-bs-toggle="modal" data-bs-target="#animateModal">Tambah Data</button>
                     </div>
                     <div class="card-body">
+                        <div class="dt-responsive">
+                            <table id="tables" class="table table-striped table-bordered nowrap">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    $sql = "SELECT * FROM users";
+                                    $query = $koneksi->query($sql);
+                                    $i = 1;
+
+                                    if ($query && $query->num_rows > 0): // Pastikan query berhasil dan memiliki data
+                                        while ($row = $query->fetch_assoc()): // Ambil data per baris
+                                    ?>
+                                            <tr>
+                                                <td><?php echo $i++; ?></td> <!-- Nomor urut -->
+                                                <td><?php echo htmlspecialchars($row['name']); ?></td> <!-- Nama pengguna -->
+                                                <td><?php echo htmlspecialchars($row['email']); ?></td> <!-- Email pengguna -->
+                                                <td>
+                                                    <div class="d-flex gap-1">
+                                                        <button type="button" data-action-url="aksi/pengguna.php?action=update" data-pc-animate="fade-in-scale" data-status="Edit" data-bs-toggle="modal" data-bs-target="#animateModal" class="btn btn-warning">Edit</button>
+                                                        <button class="btn btn-danger">Hapus</button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                    <?php
+                                        endwhile;
+                                    endif; ?>
+                                </tbody>
+
+                            </table>
+                        </div>
                     </div>
                 </div>
+                <!-- [ sample-page ] end -->
             </div>
-            <!-- [ sample-page ] end -->
+            <!-- [ Main Content ] end -->
         </div>
-        <!-- [ Main Content ] end -->
     </div>
+    <!-- [ Main Content ] end -->
 </div>
-<!-- [ Main Content ] end -->
 
 <?php
 include_once('footer.php') // Include Footer

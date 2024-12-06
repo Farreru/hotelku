@@ -1,3 +1,9 @@
+<!-- Modals -->
+<?php
+isset($modals) && !empty($modals) ? include_once($modals) : '';
+?>
+<!-- Modals End -->
+
 <footer class="pc-footer">
     <div class="footer-wrapper container-fluid">
         <div class="row">
@@ -36,7 +42,10 @@
 <script>
     preset_change("preset-1");
 </script>
-
+<!-- [Page Specific JS] start --><!-- datatable Js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="assets/js/plugins/dataTables.min.js"></script>
+<script src="assets/js/plugins/dataTables.bootstrap5.min.js"></script>
 
 <!-- Script -->
 <?php
