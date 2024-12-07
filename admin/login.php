@@ -1,3 +1,16 @@
+<?php
+
+require_once('aksi/koneksi.php');
+
+// Jika sesi sudah ada, arahkan pengguna ke index.php
+if (checkSession()) {
+    redirect_with_delay('index.php');
+    exit;
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <!-- [Head] start -->

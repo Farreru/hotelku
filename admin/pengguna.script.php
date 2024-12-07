@@ -11,6 +11,7 @@
             var modalTitle = animateModal.querySelector('.modal-title');
             modalTitle.textContent = status + " Data";
             animateModal.classList.add('anim-' + recipient);
+
             if (recipient == 'let-me-in' || recipient == 'make-way' || recipient == 'slip-from-top') {
                 document.body.classList.add('anim-' + recipient);
             }
@@ -19,6 +20,16 @@
             var newAction = button.getAttribute('data-action-url');
             if (newAction) {
                 form.action = newAction;
+                if (status == 'Edit') {
+                    var dataId = button.getAttribute('data-id');
+                    var dataName = button.getAttribute('data-name');
+                    var dataEmail = button.getAttribute('data-email');
+                    $('#id').val(dataId);
+                    $('#name').val(dataName);
+                    $('#email').val(dataEmail);
+                    $('#password').attr('placeholder', 'Isi jika perubahan password.');
+                    $('#password').attr('required', false);
+                }
             }
         });
         animateModal.addEventListener('hidden.bs.modal', function(event) {
@@ -26,6 +37,13 @@
             removeClassByPrefix(document.body, 'anim-');
             var form = animateModal.querySelector('form');
             form.action = '#';
+            $('#id').val('');
+            $('#name').val('');
+            $('#email').val('');
+            $('#password').attr('placeholder', 'Password');
+            $('#password').attr('required', true);
+
+
         });
 
         function removeClassByPrefix(node, prefix) {

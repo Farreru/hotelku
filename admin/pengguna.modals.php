@@ -7,6 +7,7 @@
             </div>
             <div class="modal-body">
                 <form action="#" method="POST">
+                    <input type="hidden" name="id" id="id">
                     <div class="form-group">
                         <label for="name">Name</label>
                         <input type="text" name="name" id="name" placeholder="Name" class="form-control" required>

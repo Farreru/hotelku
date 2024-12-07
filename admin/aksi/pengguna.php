@@ -5,7 +5,7 @@ require_once 'koneksi.php';
 
 // Tangani request berdasarkan aksi
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $action = isset($_POST['action']) ? $_POST['action'] : '';
+    $action = isset($_GET['action']) ? $_GET['action'] : '';
 
     switch ($action) {
         case 'insert':

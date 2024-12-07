@@ -2,6 +2,10 @@
 
 require_once('aksi/koneksi.php');
 
+if (!checkSession()) {
+    redirect_with_delay('login.php');
+}
+
 $user = [];
 $user['email'] = $_SESSION['email'];
 $user['name'] = $_SESSION['name'];

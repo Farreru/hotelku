@@ -20,10 +20,26 @@ if ($koneksi->connect_error) {
 
 function redirect_with_delay($url, $delay = 0)
 {
+    // Redirect dengan atau tanpa delay
     if ($delay > 0) {
         header("Refresh: $delay; url=$url");
     } else {
         header("Location: $url");
     }
     exit;
+}
+
+
+function checkSession()
+{
+    // Daftar kunci sesi yang wajib ada
+    $keys = ['user_id', 'email', 'name'];
+
+    foreach ($keys as $key) {
+        if (!isset($_SESSION[$key])) {
+            return false;
+        }
+    }
+
+    return true;
 }
