@@ -24,9 +24,13 @@
                     var dataId = button.getAttribute('data-id');
                     var dataName = button.getAttribute('data-name');
                     var dataEmail = button.getAttribute('data-email');
+                    var dataAddress = button.getAttribute('data-address');
+                    var dataPhone = button.getAttribute('data-phone');
                     $('#id').val(dataId);
                     $('#name').val(dataName);
                     $('#email').val(dataEmail);
+                    $('#address').val(dataAddress);
+                    $('#phone').val(dataPhone);
                     $('#password').attr('placeholder', 'Isi jika perubahan password.');
                     $('#password').attr('required', false);
                 }
@@ -40,6 +44,8 @@
             $('#id').val('');
             $('#name').val('');
             $('#email').val('');
+            $('#address').val('');
+            $('#phone').val('');
             $('#password').attr('placeholder', 'Password');
             $('#password').attr('required', true);
 
@@ -54,7 +60,6 @@
                 }
             }
         }
-
     });
 
     function hapusData(id) {
@@ -63,7 +68,7 @@
             // Buat elemen form secara dinamis
             const form = document.createElement("form");
             form.method = "POST"; // Ubah metode menjadi POST
-            form.action = "aksi/pengguna.php?action=delete&id=" + id; // Targetkan ke URL tujuan
+            form.action = "aksi/customer.php?action=delete&id=" + id; // Targetkan ke URL tujuan
             form.style.display = "none"; // Buat form tidak terlihat
 
             // Tambahkan form ke body dan submit

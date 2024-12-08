@@ -66,7 +66,7 @@ include_once('header.php') // Include Header
                                                 <td>
                                                     <div class="d-flex gap-1">
                                                         <button type="button" data-id="<?= $row['id'] ?>" data-name="<?= $row['name'] ?>" data-email="<?= $row['email'] ?>" data-action-url="aksi/pengguna.php?action=update" data-pc-animate="fade-in-scale" data-status="Edit" data-bs-toggle="modal" data-bs-target="#animateModal" class="btn btn-warning">Edit</button>
-                                                        <button class="btn btn-danger">Hapus</button>
+                                                        <button class="btn btn-danger" onclick="hapusData('<?= $row['id'] ?>')">Hapus</button>
                                                     </div>
                                                 </td>
                                             </tr>
