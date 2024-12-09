@@ -14,6 +14,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $harga = isset($_POST['harga']) ? trim($_POST['harga']) : '';
             $status = isset($_POST['status']) ? trim($_POST['status']) : '';
 
+            $checkTersedia = $koneksi->prepare("SELECT id FROM rooms WHERE no = ?");
+            $checkTersedia->bind_param("s", $no);
+            $checkTersedia->execute();
+            $checkTersedia->store_result();
+
+            if ($checkTersedia->num_rows > 0) {
+                echo "Nomor kamar sudah terpakai!";
+                redirect_with_delay('../kamar.php', delay: 2);
+                $checkTersedia->close();
+                break;
+            }
+
             if (!empty($no) && !empty($tipe) && !empty($harga) && !empty($status)) {
                 $stmt = $koneksi->prepare("INSERT INTO rooms (no, tipe, harga, status) VALUES (?,?,?,?)");
                 $stmt->bind_param("ssss", $no, $tipe, $harga, $status);
@@ -41,13 +53,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $harga = isset($_POST['harga']) ? trim($_POST['harga']) : '';
             $status = isset($_POST['status']) ? trim($_POST['status']) : '';
 
+            // Cek apakah nomor kamar sudah digunakan oleh ID lain
+            $checkTersedia = $koneksi->prepare("SELECT id FROM rooms WHERE no = ? AND id != ?");
+            $checkTersedia->bind_param("si", $no, $id);
+            $checkTersedia->execute();
+            $checkTersedia->store_result();
+
+            if ($checkTersedia->num_rows > 0) {
+                echo "Nomor kamar sudah terpakai!";
+                redirect_with_delay('../kamar.php', delay: 2);
+                $checkTersedia->close();
+                break;
+            }
+
             if ($id > 0 && !empty($no) && !empty($tipe) && !empty($harga) && !empty($status)) {
                 $stmt = $koneksi->prepare("UPDATE rooms SET no = ?, tipe = ?, harga = ?, status = ? WHERE id = ?");
-                $stmt->bind_param("sssssi", $no, $tipe, $harga, $status, $id);
+                $stmt->bind_param("ssssi", $no, $tipe, $harga, $status, $id);
 
                 if ($stmt->execute()) {
                     echo "Data berhasil diperbarui.";
-                    redirect_with_delay('../kamar.php', 2);
+                    redirect_with_delay('../kamar.php', delay: 2);
                 } else {
                     echo "Gagal memperbarui data: " . $stmt->error;
                     redirect_with_delay('../kamar.php', 2);

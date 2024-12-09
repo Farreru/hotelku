@@ -15,6 +15,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $password = isset($_POST['password']) ? trim($_POST['password']) : '';
             $phone = isset($_POST['phone']) ? trim($_POST['phone']) : '';
 
+            $checkTersedia = $koneksi->prepare("SELECT id FROM customers WHERE email = ?");
+            $checkTersedia->bind_param("s", $email);
+            $checkTersedia->execute();
+            $checkTersedia->store_result();
+
+            if ($checkTersedia->num_rows > 0) {
+                echo "Email sudah terpakai!";
+                redirect_with_delay('../customer.php', delay: 2);
+                $checkTersedia->close();
+                break;
+            }
+
             if (!empty($name) && !empty($email) && !empty($password) && !empty($address) && !empty($phone)) {
                 // Enkripsi password dengan MD5
                 $password = md5($password);
@@ -45,6 +57,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $email = isset($_POST['email']) ? trim($_POST['email']) : '';
             $password = isset($_POST['password']) ? trim($_POST['password']) : '';
             $phone = isset($_POST['phone']) ? trim($_POST['phone']) : '';
+
+            $checkTersedia = $koneksi->prepare("SELECT id FROM customers WHERE email = ? AND id != ?");
+            $checkTersedia->bind_param("si", $email, $id);
+            $checkTersedia->execute();
+            $checkTersedia->store_result();
+
+            if ($checkTersedia->num_rows > 0) {
+                echo "Email sudah terpakai!";
+                redirect_with_delay('../customer.php', delay: 2);
+                $checkTersedia->close();
+                break;
+            }
 
             if ($id > 0 && !empty($name) && !empty($email) && !empty($address) && !empty($phone)) {
                 // Enkripsi password jika diinputkan

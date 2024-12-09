@@ -7,7 +7,7 @@
         animateModal.addEventListener('show.bs.modal', function(event) {
             var button = event.relatedTarget;
             var recipient = button.getAttribute('data-pc-animate');
-            var status = button.getAttribute('data-status');
+            var status = button.getAttribute('data-status-modal');
             var modalTitle = animateModal.querySelector('.modal-title');
             modalTitle.textContent = status + " Data";
             animateModal.classList.add('anim-' + recipient);
@@ -27,10 +27,10 @@
                     var dataHarga = button.getAttribute('data-harga');
                     var dataStatus = button.getAttribute('data-status');
                     $('#id').val(dataId);
-                    $('#no').val(dataName);
-                    $('#tipe').val(dataEmail);
-                    $('#harga').val(dataAddress);
-                    $('#status').val(dataPhone);
+                    $('#no').val(dataNo);
+                    $('#tipe').val(dataTipe);
+                    $('#harga').val(dataHarga);
+                    $('#status').val(dataStatus);
                 }
             }
         });

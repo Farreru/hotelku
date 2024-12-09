@@ -37,7 +37,7 @@ include_once('header.php') // Include Header
                     <div class="card-header">
                         <h5>Data Kamar</h5>
                         <button data-pc-animate="fade-in-scale" type="button"
-                            class="btn btn-primary float-end" data-action-url="aksi/kamar.php?action=insert" data-status="Tambah" data-bs-toggle="modal" data-bs-target="#animateModal">Tambah Data</button>
+                            class="btn btn-primary float-end" data-action-url="aksi/kamar.php?action=insert" data-status-modal="Tambah" data-bs-toggle="modal" data-bs-target="#animateModal">Tambah Data</button>
                     </div>
                     <div class="card-body">
                         <div class="dt-responsive">
@@ -67,7 +67,7 @@ include_once('header.php') // Include Header
                                                 <td><?php echo htmlspecialchars($row['status']); ?></td> <!-- Data -->
                                                 <td>
                                                     <div class="d-flex gap-1">
-                                                        <button type="button" data-id="<?= $row['id'] ?>" data-no="<?= $row['no'] ?>" data-tipe="<?= $row['tipe'] ?>" data-harga="<?= $row['harga'] ?>" data-status="<?= $row['status'] ?>" data-action-url="aksi/kamar.php?action=update" data-pc-animate="fade-in-scale" data-status="Edit" data-bs-toggle="modal" data-bs-target="#animateModal" class="btn btn-warning">Edit</button>
+                                                        <button type="button" data-id="<?= $row['id'] ?>" data-no="<?= $row['no'] ?>" data-tipe="<?= $row['tipe'] ?>" data-harga="<?= $row['harga'] ?>" data-status-modal="Edit" data-status="<?= $row['status'] ?>" data-action-url="aksi/kamar.php?action=update" data-pc-animate="fade-in-scale" data-status="Edit" data-bs-toggle="modal" data-bs-target="#animateModal" class="btn btn-warning">Edit</button>
                                                         <button type="button" class="btn btn-danger" onclick="hapusData('<?= $row['id'] ?>')">Hapus</button>
                                                     </div>
                                                 </td>
