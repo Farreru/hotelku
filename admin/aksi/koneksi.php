@@ -29,6 +29,10 @@ function redirect_with_delay($url, $delay = 0)
     exit;
 }
 
+function formatRupiah($angka)
+{
+    return 'Rp ' . number_format($angka, 0, ',', '.');
+}
 
 function checkSession()
 {
